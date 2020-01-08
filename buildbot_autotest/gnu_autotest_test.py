@@ -17,9 +17,9 @@ class GnuAutotestTestObserver(logobserver.LogLineObserver):
         self.passed = 0
         self.complete = False
 
-    failedRe = re.compile(r"\s+FAILED\s+")
-    passedRe = re.compile(r"\s+ok\s+")
-    skippedRe = re.compile(r"\s+skipped\s+")
+    failedRe = re.compile(r"^\s*\d+\:(.*)FAILED")
+    passedRe = re.compile(r"^\s*\d+\:(.*)ok")
+    skippedRe = re.compile(r"^\s*\d+\:(.*)skipped")
 
     def outLineReceived(self, line):
         if self.failedRe.search(line):
