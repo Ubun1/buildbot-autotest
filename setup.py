@@ -21,7 +21,7 @@ setup(name='buildbot-autotest',
           "buildbot (>=2.0.0)"
       ],
       entry_points={
-          "buildbot.proccess.factory": [
+          "buildbot.util": [
               "TerraformExamples = buildbot_autotest.custom_factory:TerraformExamples"
           ],
       },
