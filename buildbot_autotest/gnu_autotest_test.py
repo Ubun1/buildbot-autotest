@@ -1,8 +1,8 @@
 import re
 
 from buildbot.process import logobserver
-from buildbot.steps import Test
 
+from buildbot.steps.shell import Test
 from buildbot.process.results import FAILURE
 from buildbot.process.results import SUCCESS
 from buildbot.process.results import WARNINGS
