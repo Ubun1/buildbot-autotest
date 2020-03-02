@@ -37,6 +37,8 @@ class TflintTest(Test):
     command = ["tflint", "--format", "json"]
 
     def __init__(self, *args, **kwargs):
+        self.command += [kwargs['case']]
+        del kwargs['case']
         super().__init__(*args, **kwargs)
         self.observer = JsonTestObserver()
         self.addLogObserver('stdio', self.observer)
