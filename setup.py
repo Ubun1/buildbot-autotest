@@ -22,7 +22,8 @@ setup(name='buildbot-autotest',
       ],
       entry_points={
           "buildbot.util": [
-              "TerraformExamples = buildbot_autotest.custom_factory:TerraformExamples"
+              "NightlyFactory = buildbot_autotest.nightly_factory:NightlyFactory",
+              "PRFactory = buildbot_autotest.pr_factory:PRFactory",
           ],
       },
       classifiers=[

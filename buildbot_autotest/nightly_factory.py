@@ -5,7 +5,7 @@ from buildbot.steps.transfer import StringDownload
 
 from buildbot_autotest.gnu_autotest_test import GnuAutotestTest
 
-class TerraformExamples(BuildFactory):
+class NightlyFactory(BuildFactory):
     def __init__(self, source, config):
         super().__init__([source])
 
