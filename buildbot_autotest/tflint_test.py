@@ -1,3 +1,5 @@
+import json
+
 from buildbot.process import logobserver
 
 from buildbot.steps.shell import Test
@@ -6,7 +8,7 @@ from buildbot.process.results import SUCCESS
 from buildbot.process.results import WARNINGS
 
 # rename -> tflint test
-class JsonTestObserver(logobserver.LogObserver):
+class JsonTestObserver(logobserver.LogLineObserver):
 
     def __init__(self):
         super().__init__()
