@@ -24,7 +24,7 @@ class JsonTestObserver(logobserver.LogObserver):
         elif len(data['issues']):
             self.warnings += len(data['issues'])
             self.rc = WARNINGS
-        else
+        else:
             self.rc = SUCCESS
        
 

@@ -1,4 +1,5 @@
 from buildbot.process.factory import BuildFactory
+from buildbot.plugins import util
 from buildbot.steps.python import Sphinx
 from buildbot.steps.transfer import StringDownload
 
@@ -14,7 +15,8 @@ class PRFactory(BuildFactory):
         self.addStep(StringDownload(config, workerdest="terraform.tfvars"))
 
         # lint rst
-        self.addStep(Sphinx(sphinx_sourcedir='./cases'))
+        basepath = util.Property('builddir')
+        self.addStep(Sphinx(sphinx_builddir='{0}/build'.format(basepath), sphinx_sourcedir='{0}/cases'.format(basepath)))
 
         # lint .tf
         self.addStep(TflintTest())
