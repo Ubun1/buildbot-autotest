@@ -7,7 +7,6 @@ from buildbot.process.results import FAILURE
 from buildbot.process.results import SUCCESS
 from buildbot.process.results import WARNINGS
 
-# rename -> tflint test
 class JsonTestObserver(logobserver.LogLineObserver):
 
     def __init__(self):
@@ -16,7 +15,6 @@ class JsonTestObserver(logobserver.LogLineObserver):
         self.failed = 0
         self.warnings = 0
         self.passed = 0
-        self.complete = False
 
     def outLineReceived(self, line):
         data = json.load(line)
@@ -39,9 +37,8 @@ class TflintTest(Test):
     command = ["tflint", "--format", "json"]
 
     def __init__(self, *args, **kwargs):
-        self.command += [kwargs['case']]
-        del kwargs['case']
         super().__init__(*args, **kwargs)
+        self.command += [kwargs['case']]
         self.observer = JsonTestObserver()
         self.addLogObserver('stdio', self.observer)
 

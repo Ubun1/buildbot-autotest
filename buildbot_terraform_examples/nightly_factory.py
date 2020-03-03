@@ -3,7 +3,7 @@ from buildbot.steps.shell import ShellCommand
 from buildbot.steps.shell import Configure
 from buildbot.steps.transfer import StringDownload
 
-from buildbot_autotest.gnu_autotest_test import GnuAutotestTest
+from buildbot_terraform_examples.gnu_autotest_test import GnuAutotestTest
 
 class NightlyFactory(BuildFactory):
     def __init__(self, source, config):

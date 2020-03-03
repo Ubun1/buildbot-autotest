@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 VERSION = "0.0.1"
 
-setup(name='buildbot-autotest',
+setup(name='buildbot-terraform-examples',
       version=VERSION,
       description='buildbot plugin for integration with autotest.',
       author='Nikita Kretov',
@@ -16,14 +16,14 @@ setup(name='buildbot-autotest',
       url='https://github.com/Ubun1/buildbot-autotest',
       long_description=long_description,
       long_description_content_type="text/markdown",
-      packages=['buildbot_autotest'],
+      packages=['buildbot_terraform_examples'],
       requires=[
           "buildbot (>=2.0.0)"
       ],
       entry_points={
           "buildbot.util": [
-              "NightlyFactory = buildbot_autotest.nightly_factory:NightlyFactory",
-              "PRFactory = buildbot_autotest.pr_factory:PRFactory",
+              "NightlyFactory = buildbot_terraform_examples.nightly_factory:NightlyFactory",
+              "PRFactory = buildbot_terraform_examples.pr_factory:PRFactory",
           ],
       },
       classifiers=[
