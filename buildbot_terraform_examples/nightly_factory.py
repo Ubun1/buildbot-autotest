@@ -5,6 +5,7 @@ from buildbot.steps.transfer import StringDownload
 
 from buildbot_terraform_examples.gnu_autotest_test import GnuAutotestTest
 
+
 class NightlyFactory(BuildFactory):
     def __init__(self, source, config):
         super().__init__([source])
@@ -12,7 +13,7 @@ class NightlyFactory(BuildFactory):
         # create local tfvars config
         self.addStep(StringDownload(config, workerdest="terraform.tfvars"))
         # autoreconf
-        reconf = ["autoreconf","-si"]
+        reconf = ["autoreconf", "-si"]
         self.addStep(ShellCommand(name="autoreconf", command=reconf))
 
         # ./configure

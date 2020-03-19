@@ -7,8 +7,8 @@ from buildbot.process.results import FAILURE
 from buildbot.process.results import SUCCESS
 from buildbot.process.results import WARNINGS
 
-class GnuAutotestTestObserver(logobserver.LogLineObserver):
 
+class GnuAutotestTestObserver(logobserver.LogLineObserver):
     def __init__(self):
         super().__init__()
         self.rc = SUCCESS
@@ -39,13 +39,14 @@ class GnuAutotestTest(Test):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.observer = GnuAutotestTestObserver()
-        self.addLogObserver('stdio', self.observer)
+        self.addLogObserver("stdio", self.observer)
 
     def evaluateCommand(self, cmd):
         self.setTestResults(
             failed=self.observer.failed,
             passed=self.observer.passed,
-            warnings=self.observer.warnings)
+            warnings=self.observer.warnings,
+        )
 
         rc = self.observer.rc
         if rc == SUCCESS and self.observer.warnings:
